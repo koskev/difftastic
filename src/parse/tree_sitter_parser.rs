@@ -608,6 +608,19 @@ pub(crate) fn from_language(language: guess::Language) -> TreeSitterConfig {
                 sub_languages: vec![],
             }
         }
+        Jsonnet => {
+            let language_fn = tree_sitter_jsonnet::LANGUAGE;
+            let language = tree_sitter::Language::new(language_fn);
+
+            TreeSitterConfig {
+                language: language.clone(),
+                atom_nodes: ["string"].into_iter().collect(),
+                delimiter_tokens: vec![("{", "}"), ("[", "]"), ("(", ")")],
+                highlight_query: ts::Query::new(&language, tree_sitter_jsonnet::HIGHLIGHTS_QUERY)
+                    .unwrap(),
+                sub_languages: vec![],
+            }
+        }
         Julia => {
             let language_fn = tree_sitter_julia::LANGUAGE;
             let language = tree_sitter::Language::new(language_fn);

@@ -127,6 +127,7 @@ tree-sitter-verilog = "1.0.3"
 tree-sitter-xml = "0.7.0"
 tree-sitter-yaml = "0.7.0"
 tree-sitter-zig = "1.1.2"
+tree-sitter-jsonnet = { git = "https://github.com/koskev/tree-sitter-jsonnet", branch = "main" }
 
 [target.'cfg(not(any(target_env = "msvc", target_os = "illumos", target_os = "freebsd")))'.dependencies]
 tikv-jemallocator = "0.6"
